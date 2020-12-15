@@ -2,12 +2,12 @@ package nd.ermakov.servlet.repository;
 
 import nd.ermakov.servlet.model.User;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class UserRepository {
 
-    private static Map<String, User> storage = new HashMap<>();
+    private static Map<String, User> storage = new ConcurrentHashMap<>();
 
     public static void save(User user) {
         storage.put(user.getName(), user);
